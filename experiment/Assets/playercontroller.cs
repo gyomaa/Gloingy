@@ -14,7 +14,7 @@ public class playercontroller : MonoBehaviour
     private Camera _camera;
     private float Xrotation = 0f;
     private Vector3 playerVelocity;
-
+    private float jumpHeight = 3f;
     
 
 
@@ -41,7 +41,10 @@ public class playercontroller : MonoBehaviour
         playermovement();
         cameramovement();
 
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            playerVelocity.y = Mathf.Sqrt(jumpHeight * -2 * -9.18f);
+        }
 
     }
 
@@ -50,10 +53,11 @@ public class playercontroller : MonoBehaviour
         if (CharacterController.isGrounded)
         {
             playerVelocity.y = 0f;
+
         }
         else
         {
-            playerVelocity.y += -9.18f * Time.deltaTime;
+            playerVelocity.y += -20.18f * Time.deltaTime;
             CharacterController.Move(playerVelocity * Time.deltaTime);
         }
     }
