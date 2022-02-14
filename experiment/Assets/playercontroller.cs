@@ -15,13 +15,23 @@ public class playercontroller : MonoBehaviour
     private float Xrotation = 0f;
     private Vector3 playerVelocity;
     private float jumpHeight = 3f;
-    
+
+    Vector3 velocity;
+    public Transform groundcheck;
+    public float grounddistance = 0.4f;
+    public LayerMask groundMask;
+
+    bool isitGrounded;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+
+        isitGrounded = Physics.CheckSphere(groundcheck.position, grounddistance, groundMask);
+
+
         CharacterController = GetComponent<CharacterController>();
 
         _camera = Camera.main;
@@ -41,7 +51,7 @@ public class playercontroller : MonoBehaviour
         playermovement();
         cameramovement();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isitGrounded)
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -2 * -9.18f);
         }
