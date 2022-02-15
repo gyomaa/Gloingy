@@ -13,37 +13,22 @@ public class playercontroller : MonoBehaviour
     private CharacterController CharacterController;
     private Camera _camera;
     private float Xrotation = 0f;
-    private Vector3 playerVelocity;
-    private float jumpHeight = 3f;
 
-    Vector3 velocity;
-    public Transform groundcheck;
-    public float grounddistance = 0.4f;
-    public LayerMask groundMask;
 
-    bool isitGrounded;
+
+
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-
-        isitGrounded = Physics.CheckSphere(groundcheck.position, grounddistance, groundMask);
-
-
         CharacterController = GetComponent<CharacterController>();
 
         _camera = Camera.main;
 
-        if (CharacterController == null)
-            Debug.Log("No Character Controller attached to Player");
-
         Cursor.lockState = CursorLockMode.Locked;
     }
-
-
-
 
     // Update is called once per frame
     void Update()
@@ -51,34 +36,14 @@ public class playercontroller : MonoBehaviour
         playermovement();
         cameramovement();
 
-        if (Input.GetKeyDown(KeyCode.Space) && isitGrounded)
-        {
-            playerVelocity.y = Mathf.Sqrt(jumpHeight * -2 * -9.18f);
-        }
-
     }
-
-    private void FixedUpdate()
-    {
-        if (CharacterController.isGrounded)
-        {
-            playerVelocity.y = 0f;
-
-        }
-        else
-        {
-            playerVelocity.y += -20.18f * Time.deltaTime;
-            CharacterController.Move(playerVelocity * Time.deltaTime);
-        }
-    }
-
 
     private void playermovement()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
-        Vector3 movement = transform.forward * vertical + transform.right * horizontal;
+        Vector3 movement = transform.forward * z + transform.right * x;
 
         bool sprint = Input.GetKey(KeyCode.LeftShift);
         bool sprinting = sprint;
