@@ -14,7 +14,13 @@ public class playercontroller : MonoBehaviour
     private Camera _camera;
     private float Xrotation = 0f;
 
+    Vector3 velocity;
+    public float gravity = -20.81f;
 
+    [SerializeField] public Transform GroundCheck;
+    public float GroundDistance = 0.4f;
+    public LayerMask GroundMask;
+    bool isGrounded;
 
 
 
@@ -71,7 +77,18 @@ public class playercontroller : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX * 1.25f);
     }
 
+    private void gravity()
+    {
+        isGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundMask);
 
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+        CharacterController.Move(velocity * Time.deltaTime):
+    }
     
      
 }
