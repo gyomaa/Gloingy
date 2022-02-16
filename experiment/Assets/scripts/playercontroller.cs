@@ -12,6 +12,8 @@ public class playercontroller : MonoBehaviour
     private CharacterController CharacterController;
     private Camera _camera;
     private float Xrotation = 0f;
+    private float baseFOV;
+    private float sprintFOV = 1.3f;
 
     Vector3 velocity;
     public float gravity = -20.18f;
@@ -32,6 +34,7 @@ public class playercontroller : MonoBehaviour
         CharacterController = GetComponent<CharacterController>();
 
         _camera = Camera.main;
+        baseFOV = _camera.fieldOfView;
 
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -63,6 +66,10 @@ public class playercontroller : MonoBehaviour
             fastspeed *= sprintspeed;
         }
 
+        // Changes FOV while sprinting
+        if (sprinting) { _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, baseFOV * sprintFOV, Time.deltaTime * 8f); }
+        else { _camera.fieldOfView = Mathf.Lerp(_camera.fieldOfView, baseFOV, Time.deltaTime * 8f); } 
+
         CharacterController.Move(movement * Time.deltaTime * fastspeed);
 
 
@@ -86,6 +93,7 @@ public class playercontroller : MonoBehaviour
         Camera.main.transform.localRotation = Quaternion.Euler(Xrotation, 0, 0);
 
         transform.Rotate(Vector3.up * mouseX * 1.25f);
+
     }
 
     private void _gravity()
