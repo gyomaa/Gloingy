@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class playercontroller : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
+    private float speed = 10f;
     private float sprintspeed = 1.3f;
-    [SerializeField] private float mouse_sensitivity = 50f;
-    [SerializeField] private float minCameraview = -70f, maxCameraview = 80f;
-
+    private float mouse_sensitivity = 200f;
+    private float minCameraview = -70f, maxCameraview = 80f;
 
     private CharacterController CharacterController;
     private Camera _camera;
     private float Xrotation = 0f;
 
     Vector3 velocity;
-    public float gravity = -20.81f;
+    public float gravity = -20.18f;
+    public float jumpHeight = 3f;
 
-    [SerializeField] public Transform GroundCheck;
+    public Transform GroundCheck;
     public float GroundDistance = 0.4f;
     public LayerMask GroundMask;
     bool isGrounded;
@@ -41,16 +41,19 @@ public class playercontroller : MonoBehaviour
     {
         playermovement();
         cameramovement();
+        _gravity();
 
     }
 
     private void playermovement()
     {
+        // Input for basic movement
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 movement = transform.forward * z + transform.right * x;
 
+        // Input for sprinting mechanic
         bool sprint = Input.GetKey(KeyCode.LeftShift);
         bool sprinting = sprint;
 
@@ -61,11 +64,19 @@ public class playercontroller : MonoBehaviour
         }
 
         CharacterController.Move(movement * Time.deltaTime * fastspeed);
+
+
+        // Input code for jumping mechanic
+        if (Input.GetButton("Jump") && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * -9.18f);
+        }
     }
 
 
     private void cameramovement()
     {
+        // Input code for basic camera movement
         float mouseX = Input.GetAxis("Mouse X") * mouse_sensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouse_sensitivity * Time.deltaTime;
 
@@ -77,8 +88,9 @@ public class playercontroller : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX * 1.25f);
     }
 
-    private void gravity()
+    private void _gravity()
     {
+        // Gravity check mechanic
         isGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -87,7 +99,7 @@ public class playercontroller : MonoBehaviour
         }
 
         velocity.y += gravity * Time.deltaTime;
-        CharacterController.Move(velocity * Time.deltaTime):
+        CharacterController.Move(velocity * Time.deltaTime);
     }
     
      
