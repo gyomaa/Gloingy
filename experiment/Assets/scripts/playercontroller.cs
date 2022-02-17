@@ -59,7 +59,6 @@ public class playercontroller : MonoBehaviour
         // Input for sprinting mechanic
         bool sprint = Input.GetKey(KeyCode.LeftShift);
         bool sprinting = sprint;
-
         float fastspeed = speed;
         if (sprinting)
         {
@@ -74,7 +73,9 @@ public class playercontroller : MonoBehaviour
 
 
         // Input code for jumping mechanic
-        if (Input.GetButton("Jump") && isGrounded)
+        bool _jump = Input.GetButton("Jump") && isGrounded;
+        bool jumping = _jump;
+        if (jumping)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * -9.18f);
         }
