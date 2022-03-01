@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4386480717022903011}
   - component: {fileID: 5678905631144407210}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,8 +107,9 @@ GameObject:
   - component: {fileID: 3915415610075825684}
   - component: {fileID: 4489981672957008207}
   - component: {fileID: 7782507978778466359}
+  - component: {fileID: 1516198299802903955}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,6 +191,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1516198299802903955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282445201322151243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c8edeec9e762544a837fe96b02cc44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  range: 100
+  fpsCam: {fileID: 3751553286876297442}
 --- !u!1 &3751553285190081875
 GameObject:
   m_ObjectHideFlags: 0
