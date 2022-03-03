@@ -205,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   range: 100
+  fireRate: 15
   fpsCam: {fileID: 3751553286876297442}
 --- !u!1 &3751553285190081875
 GameObject:
@@ -249,7 +250,7 @@ GameObject:
   - component: {fileID: 3751553285706367114}
   - component: {fileID: 3751553285706367112}
   - component: {fileID: 3751553285706367115}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
