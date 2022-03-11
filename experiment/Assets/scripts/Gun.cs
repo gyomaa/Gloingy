@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
 
-            EnemyAI target = hit.transform.GetComponent<EnemyAI>();
+            Target target = hit.transform.GetComponent<Target>();
             if (target != null)
             {
                 target.TakeDamage(damage);

@@ -607,7 +607,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 25, y: 25}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1495146142
 MonoBehaviour:
@@ -719,6 +719,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2635277875749415579, guid: 98382283b6ab93c43ace2ba04509d7a0, type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2922298328276444581, guid: 98382283b6ab93c43ace2ba04509d7a0, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -771,5 +775,9 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1300176066}
+    - target: {fileID: 6652478703140075246, guid: 98382283b6ab93c43ace2ba04509d7a0, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98382283b6ab93c43ace2ba04509d7a0, type: 3}
