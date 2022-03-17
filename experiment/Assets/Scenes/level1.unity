@@ -662,6 +662,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel
       objectReference: {fileID: 0}
+    - target: {fileID: 1516198299802903955, guid: 24d02268910e33b488c461400aff20b8, type: 3}
+      propertyPath: fireRate
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3751553285706367113, guid: 24d02268910e33b488c461400aff20b8, type: 3}
       propertyPath: m_Name
       value: player
@@ -719,10 +723,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2922298328276444581, guid: 98382283b6ab93c43ace2ba04509d7a0, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -775,9 +775,5 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1300176066}
-    - target: {fileID: 0}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98382283b6ab93c43ace2ba04509d7a0, type: 3}
