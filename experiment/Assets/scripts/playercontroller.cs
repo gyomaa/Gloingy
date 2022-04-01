@@ -6,7 +6,7 @@ public class playercontroller : MonoBehaviour
 {
     private float speed = 10f;
     private float sprintspeed = 1.3f;
-    private float mouse_sensitivity = 200f;
+    private float mouse_sensitivity = 400f;
     private float minCameraview = -70f, maxCameraview = 80f;
 
     private CharacterController CharacterController;
