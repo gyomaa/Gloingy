@@ -37,6 +37,7 @@ public class playercontroller : MonoBehaviour
         baseFOV = _camera.fieldOfView;
 
         Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     // Update is called once per frame
@@ -45,6 +46,15 @@ public class playercontroller : MonoBehaviour
         playermovement();
         cameramovement();
         _gravity();
+
+        if (Input.GetKeyDown("1"))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
 
     }
 
