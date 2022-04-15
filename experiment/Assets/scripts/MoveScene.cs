@@ -9,7 +9,7 @@ public class MoveScene : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Gloingy") || other.CompareTag("Player"))
         {
             SceneManager.LoadScene(loadlevel);
         }
