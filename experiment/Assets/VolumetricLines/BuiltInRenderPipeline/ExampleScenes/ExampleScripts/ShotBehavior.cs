@@ -18,7 +18,7 @@ public class ShotBehavior : MonoBehaviour {
         {
             if (transform.position == m_target)
             {
-                explode();
+                Destroy(gameObject);
                 return;
             }
             transform.position = Vector3.MoveTowards(transform.position, m_target, step);
@@ -43,5 +43,4 @@ public class ShotBehavior : MonoBehaviour {
 
 
     }
-
 }

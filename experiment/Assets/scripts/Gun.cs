@@ -9,6 +9,7 @@ public class Gun : MonoBehaviour
 
     public Camera fpsCam;
     private float nextTimeToFire = 0f;
+    public GameObject hitEffect;
 
 
     // Update is called once per frame
@@ -28,14 +29,18 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+
+            CreateHitImpact(hit);
 
             Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
-            {
-                target.TakeDamage(damage);
-            }
+            target.TakeDamage(damage);
         }
+    }
+
+    private void CreateHitImpact(RaycastHit hit)
+    {
+        GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impact, .2f);
     }
 
 }

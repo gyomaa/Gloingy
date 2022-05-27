@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 7624538867331924016}
   - component: {fileID: -4691938077657794951}
   - component: {fileID: 673199344391097209}
+  - component: {fileID: 1361456091109415827}
   m_Layer: 3
   m_Name: Gloingy
   m_TagString: Player
@@ -207,6 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  currenthealth: 0
+  healthBar: {fileID: 1556534514150673901, guid: 890fb536040be7348878efb30433f744, type: 3}
 --- !u!114 &-4691938077657794951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11361ed2016d7e047a3ac3511d26e5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvas: {fileID: 0}
+  gameOverCanvas: {fileID: 1909561173967150738, guid: 0197856dea9db6249991b269045d7ad0, type: 3}
 --- !u!143 &673199344391097209
 CharacterController:
   m_ObjectHideFlags: 0
@@ -238,6 +241,102 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &1361456091109415827
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673199344391097189}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &673199344740935983
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88859c050e3fca44ba171548f8ea0460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootRate: 0.1
+  m_shotPrefab: {fileID: 136330, guid: 0c8755c5a7dcfbc4d9830a911e614042, type: 3}
 --- !u!1001 &673199344717039169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -407,6 +508,7 @@ MonoBehaviour:
   range: 100
   fireRate: 6.5
   fpsCam: {fileID: 673199343767395789}
+  hitEffect: {fileID: 5782821892663585745, guid: 11f208f402fae314da445fcc076c1391, type: 3}
 --- !u!4 &673199344717176001 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 57e0bcfd91ce9904bb0f83ba8717387a, type: 3}

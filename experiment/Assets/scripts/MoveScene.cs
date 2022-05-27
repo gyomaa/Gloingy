@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class MoveScene : MonoBehaviour
 {
-    [SerializeField] private string loadlevel;
+
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Gloingy") || other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(loadlevel);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 

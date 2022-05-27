@@ -20,6 +20,7 @@ public class RayGun : MonoBehaviour
         {
             if (Time.time > m_shootRateTimeStamp)
             {
+                
                 shootRay();
                 m_shootRateTimeStamp = Time.time + shootRate;
             }
@@ -32,6 +33,7 @@ public class RayGun : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, range))
         {
+            FindObjectOfType<AudioManager>().Play("Pew");
             GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
             laser.GetComponent<ShotBehavior>().setTarget(hit.point);
             GameObject.Destroy(laser, 2f);
